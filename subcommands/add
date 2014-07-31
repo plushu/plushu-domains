@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $PLUSHU_TRACE ]] && set -x
+
+if [[ -z "$2" ]]; then
+  echo "Missing app name" >&2
+  exit 1
+fi
+
+app=$2
+domains="${@:3}"
+app_dir=$PLUSHU_ROOT/apps/$app
+domain_file=$app_dir/domains
+
+for domain in "${domains[@]}"; do
+  # If the domain isn't already in the file
+  if ! { [[ -f "$domain_file" ]] && fgrep -qx "$domain" "$domain_file"; } then
+    # Add it
+    echo "$domain" >>"$domain_file"
+  fi
+done
+
+$PLUSHU_ROOT/lib/runhook deploy "$app"
