@@ -20,6 +20,13 @@ Usage: `plushu domains:all <app>`
 
 Lists *all* domains for an app, including those defined by other plugins.
 
+## domains:all
+
+Usage: `plushu domains:link <app> [path]`
+
+Lists all domains for an app, including those defined by other plugins, as
+protocol-prefixed URLs to a given path (`/` by default).
+
 ## domains:add
 
 Usage: `plushu domains:add <app> <domain>...`
