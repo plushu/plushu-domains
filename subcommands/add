@@ -15,7 +15,7 @@ for domain in "${domains[@]}"; do
   # If the domain isn't already in the file
   if ! { [[ -f "$domain_file" ]] && fgrep -qx "$domain" "$domain_file"; } then
     # Add it
-    echo "$domain" >>"$domain_file"
+    printf '%s\n' "$domain" >>"$domain_file"
   fi
 done
 
