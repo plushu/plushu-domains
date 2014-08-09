@@ -9,4 +9,4 @@ fi
 app=$2
 path=`sed 's/&/\&/g' <<<"/${3#/}"`
 
-"$PLUSHU_ROOT/lib/runhook" app-domains "$app" | sed "s ^.*\$ http://&$path"
+"$PLUSHU_ROOT/lib/plushook" app-domains "$app" | sed "s ^.*\$ http://&$path"

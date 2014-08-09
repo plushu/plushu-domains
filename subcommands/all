@@ -8,4 +8,4 @@ fi
 
 app=$2
 
-"$PLUSHU_ROOT/lib/runhook" app-domains "$app"
+"$PLUSHU_ROOT/lib/plushook" app-domains "$app"
