@@ -19,4 +19,4 @@ for domain in "${domains[@]}"; do
   sed -i "/^$(fsed "$domain")\$/ d" "$domain_file"
 done
 
-$PLUSHU_ROOT/lib/runhook deploy "$app"
+"$PLUSHU_ROOT/lib/runhook" deploy-app "$app"

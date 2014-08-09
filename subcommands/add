@@ -19,4 +19,4 @@ for domain in "${domains[@]}"; do
   fi
 done
 
-$PLUSHU_ROOT/lib/runhook deploy "$app"
+"$PLUSHU_ROOT/lib/runhook" deploy-app "$app"
