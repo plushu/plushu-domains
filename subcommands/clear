@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 set -eo pipefail; [[ -n "$PLUSHU_TRACE" ]] && set -x
 
-if [[ -z "$2" ]]; then
+if [[ -n "$PLUSHU_APP_NAME" ]]; then
+  app=$PLUSHU_APP_NAME
+elif [[ -n "$2" ]]; then
+  app=$2
+  shift
+else
   echo "Missing app name" >&2
-  exit 1
-elif [[ -n "$3" ]]; then
-  echo "clear: too many arguments (did you mean to use remove?)" >&2
   exit 1
 fi
 
-app=$2
 app_dir=$PLUSHU_ROOT/apps/$app
 domain_file=$app_dir/domains
+
+if [[ -n "$2" ]]; then
+  echo "clear: too many arguments (did you mean to use remove?)" >&2
+  exit 1
+fi
 
 rm -f "$domain_file"
 "$PLUSHU_ROOT/lib/plushook" deploy-app "$app"
