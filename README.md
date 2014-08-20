@@ -20,7 +20,7 @@ Usage: `plushu domains:all <app>`
 
 Lists *all* domains for an app, including those defined by other plugins.
 
-## domains:all
+## domains:link
 
 Usage: `plushu domains:link <app> [path]`
 
