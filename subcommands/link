@@ -11,6 +11,14 @@ else
   exit 1
 fi
 
+app_dir=$PLUSHU_ROOT/apps/$app
+
+# Check if app exists
+if [[ ! -d "$app_dir" ]]; then
+  echo "App not found: $app" >&2
+  exit 1
+fi
+
 path=`sed 's/&/\&/g' <<<"/${2#/}"`
 
 "$PLUSHU_ROOT/lib/plushook" app-domains "$app" | sed "s ^.*\$ http://&$path"

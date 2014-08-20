@@ -12,6 +12,13 @@ else
 fi
 
 app_dir=$PLUSHU_ROOT/apps/$app
+
+# Check if app exists
+if [[ ! -d "$app_dir" ]]; then
+  echo "App not found: $app" >&2
+  exit 1
+fi
+
 domain_file=$app_dir/domains
 
 [[ -f "$domain_file" ]] && cat "$domain_file"
