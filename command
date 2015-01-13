@@ -21,4 +21,6 @@ fi
 
 domain_file=$app_dir/domains
 
-[[ -f "$domain_file" ]] && cat "$domain_file"
+if [[ -f "$domain_file" ]]; then
+  cat "$domain_file"
+fi
