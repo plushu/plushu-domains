@@ -19,7 +19,7 @@ if [[ ! -d "$app_dir" ]]; then
   exit 1
 fi
 
-domains="${@:2}"
+domains=("${@:2}")
 domain_file=$app_dir/domains
 
 for domain in "${domains[@]}"; do
